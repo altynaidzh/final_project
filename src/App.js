@@ -1,6 +1,8 @@
 import "./App.css";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar";
+import Filter from "./components/Filter";
+import Footer from "./Footer/Footer";
 
 function App() {
   console.log("APP");
@@ -8,6 +10,8 @@ function App() {
     <>
       <Navbar />
       <Routing />
+      <Filter />
+      <Footer />
     </>
   );
 }
