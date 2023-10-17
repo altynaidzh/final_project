@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
-import SignUp from "./components/SignUp/index";
-import SignIn from "./components/SignIn/index";
 import HomePage from "./pages/HomePage/HomePage";
 import CreateProduct from "./pages/CreateProduct";
 import EditProducts from "./pages/EditProducts";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 
 // const PrivateRoutes = () => {
 //   const user = localStorage.getItem("email");
@@ -24,8 +24,8 @@ const Routing = () => {
       <Route path="/*" element={<HomePage />} />
       <Route path="/create-ad" element={<CreateProduct />} />
       <Route path="/edit-ad" element={<EditProducts />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

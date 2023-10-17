@@ -2,8 +2,11 @@ import React, { useContext, useEffect } from "react";
 import CustomCard from "../../components/CustomCard";
 import "./home.css";
 import { productsContext } from "../../context/productContext";
+import FilterM from "../../components/FilterM";
+// import FooterM from "../../components/FooterM/FooterM";
 
 const HomePage = () => {
+  <FilterM />;
   const { products, getProducts, getCategories, categories } =
     useContext(productsContext);
   // console.clear();
@@ -18,6 +21,7 @@ const HomePage = () => {
           <CustomCard {...item} />
         ))}
       </div>
+      {/* <FooterM /> */}
     </>
   );
 };

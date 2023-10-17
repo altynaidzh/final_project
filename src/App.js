@@ -1,6 +1,7 @@
 import "./App.css";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar";
+import AuthContextProvider from "./context/authContext";
 import ProductsContextProvider from "./context/productContext";
 
 function App() {
@@ -8,8 +9,10 @@ function App() {
   return (
     <>
       <ProductsContextProvider>
-        <Navbar />
-        <Routing />
+        <AuthContextProvider>
+          <Navbar />
+          <Routing />
+        </AuthContextProvider>
       </ProductsContextProvider>
     </>
   );
