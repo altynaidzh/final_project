@@ -1,0 +1,46 @@
+.footer {
+  padding-left: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  z-index: 50;
+  background-color: white;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  gap: 0.75rem;
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  text-transform: capitalize;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.globe-icon,
+.caret-icon {
+  font-size: 1.2rem;
+}
+.asdfg {
+  align-items: center;
+  display: flex;
+  gap: 24rem;
+}
+
+.capitalize {
+  color: black;
+}

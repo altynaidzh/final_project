@@ -1,16 +1,17 @@
 import "./App.css";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar";
-import ProductsContextProvider from "./context/productContext";
+import Filter from "./components/Filter";
+import Footer from "./Footer/Footer";
 
 function App() {
   console.log("APP");
   return (
     <>
-      <ProductsContextProvider>
-        <Navbar />
-        <Routing />
-      </ProductsContextProvider>
+      <Navbar />
+      <Routing />
+      <Filter />
+      <Footer />
     </>
   );
 }
