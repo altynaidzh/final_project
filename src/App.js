@@ -3,6 +3,7 @@ import Routing from "./Routing";
 import Navbar from "./components/Navbar";
 import Filter from "./components/Filter";
 import Footer from "./Footer/Footer";
+import ProductsContextProvider from "./context/productContext"
 
 function App() {
   console.log("APP");
@@ -12,6 +13,10 @@ function App() {
       <Routing />
       <Filter />
       <Footer />
+      <ProductsContextProvider>
+        <Navbar />
+        <Routing />
+      </ProductsContextProvider>
     </>
   );
 }
