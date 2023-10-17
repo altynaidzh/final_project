@@ -3,8 +3,11 @@ import "./Navbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import LanguageIcon from "@mui/icons-material/Language";
 import BasicMenu from "./profileMenu";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="navbar">
       <img
@@ -20,7 +23,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="profile-container">
-        <div className="yourHome">Airbnb your home</div>
+        <div className="yourHome" onClick={() => navigate("/create-add")}>
+          Airbnb your home
+        </div>
         <div className="yourHome">
           <LanguageIcon sx={{ fontSize: "1.3rem" }} />
         </div>
