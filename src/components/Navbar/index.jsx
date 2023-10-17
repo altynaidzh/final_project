@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="profile-container">
-        <div className="yourHome" onClick={() => navigate("/create-add")}>
+        <div className="yourHome" onClick={() => navigate("/create-ad")}>
           Airbnb your home
         </div>
         <div className="yourHome">

@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useContext, useReducer } from "react";
 
 export const productsContext = React.createContext();
-const API = "http://35.198.134.123/api/v1";
+// const API = "http://35.198.134.123/api/v1";
+// const API = "http://35.198.134.123/api/v1";
+const API = "http://35.234.115.220/api/v1";
 const APARTMENT_ENDPOINT = "apartment/";
-const APARTMENT_IMAGE = "apartment/image/";
+// const APARTMENT_IMAGE = "apartment/image/";
 
 export const useProducts = () => {
   return useContext(productsContext);
@@ -50,20 +52,20 @@ function reducer(state = INIT_STATE, action) {
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const createCategory = async (category) => {
-    try {
-      await axios.post(`${API}/apartment/category/`, category);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const createCategory = async (category) => {
+  //   try {
+  //     await axios.post(`${API}/apartment/category/`, category);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const getCategories = async () => {
     try {
-      const res = await axios(`${API}/apartment/category/`);
+      const { data } = await axios(`${API}/apartment/category/`);
       dispatch({
         type: "GET_CATEGORIES",
-        payload: res,
+        payload: data,
       });
     } catch (error) {
       console.log(error);
@@ -72,7 +74,7 @@ const ProductsContextProvider = ({ children }) => {
 
   const getCategoryByName = async (name) => {
     try {
-      const { data } = await axios(`${API}/categories/${name}`);
+      const { data } = await axios(`${API}/apartment/category/${name}`);
       dispatch({
         type: "GET_CATEGORY",
         payload: data,
@@ -82,13 +84,16 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
-  const createProductImage = async (product) => {
-    try {
-      await axios.post(`${API}/${APARTMENT_IMAGE}`, product);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // console.log(getCategories);
+
+  // const createProductImage = async (image) => {
+  //   try {
+  //     await axios.post(`${API}/${APARTMENT_IMAGE}`, image);
+  //     console.log(image);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const createProduct = async (product) => {
     try {
@@ -97,6 +102,9 @@ const ProductsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  // console.log(createProduct);
+  // console.log(createProductImage);
 
   const getProducts = async (search, category, _page) => {
     try {
@@ -138,9 +146,9 @@ const ProductsContextProvider = ({ children }) => {
         categories: state.categories,
         oneProduct: state.oneProduct,
         category: state.category,
-        createCategory,
+        // createCategory,
         createProduct,
-        createProductImage,
+        // createProductImage,
         getProducts,
         getCategories,
         getCategoryByName,

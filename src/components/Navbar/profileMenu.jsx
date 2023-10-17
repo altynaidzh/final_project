@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -39,8 +40,12 @@ export default function BasicMenu() {
         }}
         sx={{ borderRadius: "2rem" }}
       >
-        <MenuItem onClick={handleClose}>Sign up</MenuItem>
-        <MenuItem onClick={handleClose}>Sign in</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/register">Sign up</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/login">Sign in</Link>
+        </MenuItem>
         <div
           style={{ height: "1px", backgroundColor: "grey", width: "100%" }}
         />
