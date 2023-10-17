@@ -4,6 +4,7 @@ import SignUp from "./components/SignUp/index";
 import SignIn from "./components/SignIn/index";
 import HomePage from "./pages/HomePage/HomePage";
 import CreateProduct from "./pages/CreateProduct";
+import EditProducts from "./pages/EditProducts";
 
 // const PrivateRoutes = () => {
 //   const user = localStorage.getItem("email");
@@ -21,7 +22,8 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="/*" element={<HomePage />} />
-      <Route path="/create-add" element={<CreateProduct />} />
+      <Route path="/create-ad" element={<CreateProduct />} />
+      <Route path="/edit-ad" element={<EditProducts />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
     </Routes>
