@@ -7,9 +7,8 @@
   width: 100%;
   font-size: 14px;
   z-index: 50;
-  background-color: gray;
+  background-color: white;
   align-items: center;
-  height: 300px;
 }
 
 ul {
@@ -25,9 +24,23 @@ li {
 li a {
   text-transform: capitalize;
 }
-.asdfg {
-  width: 100%;
+
+.icon-text-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.globe-icon,
+.caret-icon {
+  font-size: 1.2rem;
+}
+.asdfg {
+  align-items: center;
+  display: flex;
+  gap: 24rem;
+}
+
+.capitalize {
+  color: black;
 }
