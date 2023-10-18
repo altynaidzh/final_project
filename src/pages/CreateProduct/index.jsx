@@ -63,6 +63,7 @@ const CreateProduct = () => {
     setTitle("");
     setPrice("");
     setDescription("");
+    setEducation("");
     setSelectedCategory("");
     setPriceUsd("");
     setLocation("");

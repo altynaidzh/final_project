@@ -27,6 +27,8 @@ const EditProduct = () => {
   const [description, setDescription] = useState("");
   const [education, setEducation] = useState("");
   const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
+  const [priceusd, setPriceUsd] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const navigate = useNavigate();
   const { getCategories, categories, getProductById, oneProduct, editProduct } =
@@ -56,6 +58,8 @@ const EditProduct = () => {
       description,
       education,
       price,
+      priceusd,
+      location,
       category: selectedCategory,
     };
     for (const key in product) {
@@ -67,11 +71,13 @@ const EditProduct = () => {
     await editProduct(product, id);
     navigate("/*");
 
+    setImage("");
     setTitle("");
-    setDescription("");
-    setEducation("");
     setPrice("");
+    setDescription("");
     setSelectedCategory("");
+    setPriceUsd("");
+    setLocation("");
   };
 
   return (
@@ -102,6 +108,14 @@ const EditProduct = () => {
       />
       <TextField
         fullWidth
+        label="Location"
+        className="createInput"
+        style={{ marginBottom: "10px" }}
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+      />
+      <TextField
+        fullWidth
         label="Short description"
         className="createInput"
         style={{ marginBottom: "10px" }}
@@ -125,23 +139,29 @@ const EditProduct = () => {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
+      <TextField
+        fullWidth
+        label="Price per night in USD"
+        className="createInput"
+        style={{ marginBottom: "10px" }}
+        value={priceusd}
+        onChange={(e) => setPriceUsd(e.target.value)}
+      />
       <FormControl sx={{ m: 0, width: 500, marginBottom: 3 }}>
         <InputLabel id="demo-multiple-name-label">Choose category</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
-          multiple
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
           input={<OutlinedInput label="Category" />}
           MenuProps={MenuProps}
         >
-          {categories &&
-            categories.map((category) => (
-              <MenuItem value={category.name} key={category.name}>
-                {category.title}
-              </MenuItem>
-            ))}
+          {categories.map((item) => (
+            <MenuItem value={item.name} key={item.name}>
+              {item.name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
       <Button
