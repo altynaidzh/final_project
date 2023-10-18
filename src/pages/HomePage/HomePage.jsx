@@ -7,21 +7,23 @@ import FooterM from "../../components/FooterM/FooterM";
 import CardList from "../../components/CardList/CardList";
 
 const HomePage = () => {
-  <FilterM />;
   const { products, getProducts, getCategories, categories } =
     useContext(productsContext);
   // console.clear();
   // console.log(products);
   useEffect(() => {
+    // console.log(1);
     getProducts();
   }, []);
   return (
     <>
+      <FilterM />
       <div className="cardDiv">
         {products.map((item) => (
           <CustomCard {...item} />
         ))}
       </div>
+      <FooterM />
     </>
   );
 };

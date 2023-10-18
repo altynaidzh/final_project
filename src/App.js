@@ -15,10 +15,8 @@ function App() {
       <ProductsContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <FilterM />
 
           <Routing />
-          <FooterM />
         </AuthContextProvider>
       </ProductsContextProvider>
     </>

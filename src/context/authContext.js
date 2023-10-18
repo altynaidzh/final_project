@@ -58,23 +58,6 @@ const AuthContextProvider = ({ children }) => {
     navigate("login/");
     window.location.reload();
   };
-  const handleAccountActivation = async (activationCode, navigate) => {
-    try {
-      const response = await axios.get(
-        `${API}${ACCOUNT_ENDPOINT}activate/${activationCode}`
-      );
-
-      if (response.status === 200) {
-        toast.success("Account activated successfully!");
-        navigate("/login");
-      } else {
-        toast.error("Account activation failed.");
-      }
-    } catch (error) {
-      console.error("Error activating account:", error);
-      toast.error("Account activation failed.");
-    }
-  };
 
   return (
     <authContext.Provider
