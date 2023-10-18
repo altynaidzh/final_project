@@ -4,7 +4,8 @@ import React, { useContext, useReducer } from "react";
 export const productsContext = React.createContext();
 // const API = "http://35.198.134.123/api/v1";
 // const API = "http://35.198.134.123/api/v1";
-const API = "http://35.234.115.220/api/v1";
+// const API = "http://35.234.115.220/api/v1";
+const API = "http://sss.samirkk.com/api/v1";
 const APARTMENT_ENDPOINT = "apartment/";
 // const APARTMENT_IMAGE = "apartment/image/";
 
@@ -138,6 +139,18 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
+  const editProduct = async (product, id) => {
+    await axios.patch(`${API}/apartment/${id}`, product);
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await axios.delete(`${API}/apartment/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <productsContext.Provider
       value={{
@@ -153,6 +166,8 @@ const ProductsContextProvider = ({ children }) => {
         getCategories,
         getCategoryByName,
         getProductById,
+        editProduct,
+        deleteProduct,
       }}
     >
       {children}

@@ -9,13 +9,12 @@ const CustomCard = (props) => {
 
   const navigate = useNavigate();
 
-  // console.log(categories, "dhsfhfsdj");
-  // console.log(products.results, "products");
-  // https://a0.muscache.com/im/pictures/prohost-api/Hosting-48509375/original/0862735b-4abc-4d87-a8d1-f2fb6053adc8.jpeg?im_w=720
+  // Assuming you have an onDelete function and a product prop
+  const { onDelete, product } = useContext(productsContext);
 
   return (
     <div className="card-box">
-      <img className="card-img" sty src={props.image} />
+      <img className="card-img" src={props.image} /> {/* Fixed src attribute */}
       <div className="card-info-flex">
         <h3
           className="card-title"
@@ -48,7 +47,9 @@ const CustomCard = (props) => {
         <button className="card-button" onClick={() => navigate("/edit-ad")}>
           Edit
         </button>
-        <button className="card-button">Delete</button>
+        <button className="card-button" onClick={() => onDelete(product.id)}>
+          Delete
+        </button>
         <button className="card-button">Comment</button>
         <button className="card-button">Details</button>
         <button className="card-button">Evaluate</button>
