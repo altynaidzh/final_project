@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { links } from "../../assets/images-links";
+import { links } from "../../components/CardList/CardList";
 import "./styles.css";
+import { useSearchParams } from "react-router-dom";
 
 function FilterM({ selectedFilter, setSelectedFilter }) {
+  const [search, setSearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const onChange = (value) => {
+    setSearch(value);
+    searchParams.set("category", value);
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="filter-div">
       {links.map((item, i) => (
@@ -11,7 +21,7 @@ function FilterM({ selectedFilter, setSelectedFilter }) {
           className={`links-box ${i == selectedFilter && "selected-box"}`}
           onClick={() => {
             console.log("selecting key", i);
-            setSelectedFilter(i);
+            onChange(item.label);
           }}
         >
           <img src={item.imgSrc} className="links-img" />

@@ -3,7 +3,8 @@ import CustomCard from "../../components/CustomCard";
 import "./home.css";
 import { productsContext } from "../../context/productContext";
 import FilterM from "../../components/FilterM";
-// import FooterM from "../../components/FooterM/FooterM";
+import FooterM from "../../components/FooterM/FooterM";
+import CardList from "../../components/CardList/CardList";
 
 const HomePage = () => {
   <FilterM />;
@@ -21,7 +22,6 @@ const HomePage = () => {
           <CustomCard {...item} />
         ))}
       </div>
-      {/* <FooterM /> */}
     </>
   );
 };
